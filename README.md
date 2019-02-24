@@ -30,7 +30,7 @@ Execute SET GLOBAL general_log = 'ON';
 Whereafter you can review all your data. Although, in order to convert this data from BLOB to readable text (The arguments field) use: 
 
 ```
-select CONVERT(argument USING utf8 ) from mysql.general_log;
+select event_time, user_host, CONVERT(argument USING utf8 ) as sqlcommand from mysql.general_log
 ```
 
 The result of this query will be:
